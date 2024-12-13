@@ -1,0 +1,19 @@
+The CSS specificity can sometimes lead to unexpected styling issues.  For example, consider the following:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+p.special {
+  color: green;
+}
+
+<p class="special">This is some text.</p>
+```
+
+You might expect the text to be green, due to the higher specificity of `p.special`. However, if there's another rule with even higher specificity (such as an inline style), it might override this, causing unexpected behavior. This makes debugging difficult, as the specificity is not immediately obvious.
